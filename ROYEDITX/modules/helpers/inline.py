@@ -1,8 +1,9 @@
+# ROYEDITX/modules/helpers/inline.py
 from pyrogram.types import InlineKeyboardButton
-
 from config import SUPPORT_GRP, UPDATE_CHNL
 from ROYEDITX import BOT_USERNAME, OWNER
 
+# ---------------- DEV / OPERATION BUTTONS ----------------
 DEV_OP = [
     [
         InlineKeyboardButton(
@@ -19,7 +20,7 @@ DEV_OP = [
     ],
 ]
 
-####
+# ---------------- PNG BUTTONS ----------------
 PNG_BTN = [
     [
         InlineKeyboardButton(
@@ -30,62 +31,58 @@ PNG_BTN = [
     ],
 ]
 
-#####
+# ---------------- BACK BUTTON ----------------
 BACK = [
-    [
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="BACK"),
-    ],
+    [InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="BACK")]
 ]
 
-
-####
+# ---------------- HELP BUTTONS ----------------
 HELP_BTN = [
     [
         InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="BACK"),
         InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="CLOSE"),
-    ],
+    ]
 ]
 
-#####
+# ---------------- CLOSE BUTTONS ----------------
 CLOSE_BTN = [
     [
-        InlineKeyboardButton(text="ʀᴇᴘᴏ", url=f"https://github.com/Adibotkaiaia/CHATBOT"),
+        InlineKeyboardButton(
+            text="ʀᴇᴘᴏ", url="https://github.com/Adibotkaiaia/CHATBOT"
+        ),
         InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="CLOSE"),
-    ],
+    ]
 ]
 
-####
+# ---------------- CHATBOT TOGGLE ----------------
 CHATBOT_ON = [
     [
-        InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data=f"addchat"),
-        InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data=f"rmchat"),
-    ],
+        InlineKeyboardButton(text="ᴇɴᴀʙʟᴇ", callback_data="addchat"),
+        InlineKeyboardButton(text="ᴅɪsᴀʙʟᴇ", callback_data="rmchat"),
+    ]
 ]
 
-#####
 CHATBOT_BACK = [
     [
         InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="CHATBOT_BACK"),
         InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="CLOSE"),
-    ],
+    ]
 ]
 
-####
+# ---------------- HELP START BUTTON ----------------
 HELP_START = [
     [
         InlineKeyboardButton(text="ʜᴇʟᴘ", callback_data="HELP"),
         InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="CLOSE"),
-    ],
+    ]
 ]
 
-#####
+# ---------------- HELP BUTTON WITH URL ----------------
 HELP_BUTN = [
     [
         InlineKeyboardButton(
             text="ʜᴇʟᴘ", url=f"https://t.me/{BOT_USERNAME}?start=help"
         ),
         InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="CLOSE"),
-    ],
+    ]
 ]
-
-######
