@@ -1,3 +1,4 @@
+# ROYEDITX/__init__.py
 import asyncio
 import logging
 import time
@@ -7,12 +8,12 @@ from pyrogram import Client
 
 import config
 
-# -------------------- EVENT LOOP FIX (MOST IMPORTANT) --------------------
+# -------------------- EVENT LOOP FIX --------------------
 try:
     asyncio.get_event_loop()
 except RuntimeError:
     asyncio.set_event_loop(asyncio.new_event_loop())
-# -------------------------------------------------------------------------
+# ---------------------------------------------------------
 
 logging.basicConfig(
     format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
@@ -31,9 +32,13 @@ mongo = AsyncIOMotorClient(config.MONGO_URL)
 db = mongo.Anonymous
 # --------------------------------------------------------
 
+# -------------------- GLOBALS --------------------
 OWNER = config.OWNER_ID
+BOT_NAME = "ROYEDITX"      # Bot ka display name
+BOT_USERNAME = config.BOT_USERNAME
+OWNER_USERNAME = config.OWNER_USERNAME
 
-
+# -------------------- BOT CLASS --------------------
 class LOCOPILOT(Client):
     def __init__(self):
         super().__init__(
@@ -50,15 +55,11 @@ class LOCOPILOT(Client):
         self.id = me.id
         self.name = me.first_name
         self.username = me.username
-        LOGGER.info("Bot started successfully")
+        LOGGER.info(f"{BOT_NAME} started successfully as @{self.username}")
 
     async def stop(self):
         await super().stop()
-        LOGGER.info("Bot stopped")
+        LOGGER.info(f"{BOT_NAME} stopped")
 
-
+# -------------------- APP INSTANCE --------------------
 app = LOCOPILOT()
-
-# -------------------- MAIN RUN --------------------
-if __name__ == "__main__":
-    app.run()
